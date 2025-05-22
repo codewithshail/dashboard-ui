@@ -1,0 +1,1 @@
+ALTER TABLE "user_recent_tools" RENAME COLUMN "last_used" TO "last_used_at";

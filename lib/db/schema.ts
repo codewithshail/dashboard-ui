@@ -20,3 +20,11 @@ export const userPreferences = pgTable('user_preferences', {
 }, (t) => ({
   pk: primaryKey({ columns: [t.userId] }),
 }));
+
+export const userRecentTools = pgTable('user_recent_tools', {
+  userId: uuid('user_id').references(() => users.id).notNull(),
+  toolId: text('tool_id').notNull(),          
+  lastUsedAt: timestamp('last_used_at').defaultNow(),
+}, (t) => ({
+  pk: primaryKey({ columns: [t.userId, t.toolId] }),
+}));

@@ -62,9 +62,11 @@ export default async function DashboardLayout({
 
   return (
     <UserProvider userData={userData}>
-      <div className="p-6">
-        <PrimarySidebar />
+      <div className="flex h-screen">
+      <PrimarySidebar />
+      <main className="flex-1 overflow-auto">
         {children}
+      </main>
       </div>
     </UserProvider>
   );
