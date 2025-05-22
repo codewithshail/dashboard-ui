@@ -5,6 +5,7 @@ import { eq } from "drizzle-orm";
 import { users, userPreferences } from "@/lib/db/schema";
 import { UserProvider } from "@/providers/user-providers";
 import { PrimarySidebar } from "@/components/dashboard/sidebar/primary-sidebar";
+import { ContextualSidebar } from "@/components/dashboard/sidebar/contextual-sidebar";
 
 async function ensureUserExists() {
   const { userId } = await auth();
@@ -64,6 +65,7 @@ export default async function DashboardLayout({
     <UserProvider userData={userData}>
       <div className="flex h-screen">
       <PrimarySidebar />
+      <ContextualSidebar type="dashboard" />
       <main className="flex-1 overflow-auto">
         {children}
       </main>
