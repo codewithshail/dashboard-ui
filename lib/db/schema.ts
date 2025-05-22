@@ -3,6 +3,7 @@ import { integer, jsonb, pgTable, primaryKey, text, timestamp, uuid } from "driz
 
 export const users = pgTable('users', {
   id: uuid('id').primaryKey().defaultRandom(),
+  clerkId: text('clerk_id').notNull().unique(),
   email: text('email').notNull(),
   username: text('username'),
   image: text('image'),

@@ -4,6 +4,7 @@ import { createContext, useContext, ReactNode } from "react";
 
 interface UserData {
   id: string;
+  clerkId: string
   email: string;
   username: string | null;
   image: string | null;

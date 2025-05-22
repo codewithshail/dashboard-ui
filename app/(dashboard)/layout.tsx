@@ -9,35 +9,30 @@ import { PrimarySidebar } from "@/components/dashboard/sidebar/primary-sidebar";
 async function ensureUserExists() {
   const { userId } = await auth();
   const clerkUser = await currentUser();
-
+  
   if (!userId || !clerkUser) {
     redirect("/sign-in");
   }
 
   try {
+
     let existingUser = await db
       .select()
       .from(users)
-      .where(eq(users.id, userId))
+      .where(eq(users.clerkId, userId))
       .limit(1);
 
     if (existingUser.length === 0) {
       const newUserData = {
-        id: userId,
+        clerkId: userId,
         email: clerkUser?.primaryEmailAddress?.emailAddress!,
         username: clerkUser.username || clerkUser.firstName,
         image: clerkUser.imageUrl || null,
         purchasedCoins: 100,
       };
 
-      await db.insert(users).values(newUserData);
-
-      existingUser = await db
-        .select()
-        .from(users)
-        .where(eq(users.id, userId))
-        .limit(1);
-
+      const [newUser] = await db.insert(users).values(newUserData).returning();
+      existingUser = [newUser];
       console.log(`Created new user: ${userId}`);
     }
 
@@ -54,7 +49,7 @@ export default async function DashboardLayout({
   children: React.ReactNode;
 }) {
   const userData = await ensureUserExists();
-
+  
   const preferences = await db
     .select()
     .from(userPreferences)

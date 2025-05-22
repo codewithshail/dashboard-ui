@@ -1,3 +1,5 @@
+import { PreferenceOption } from "@/types/preferences";
+
 export const toolCategories = [
   {
     id: "general",
@@ -1946,4 +1948,78 @@ export const toolCategories = [
       },
     ],
   },
+];
+
+
+export const PREFERENCE_OPTIONS: PreferenceOption[] = [
+  {
+    id: "productivity",
+    title: "Productivity & Organization",
+    description: "Tools to boost your efficiency and organize your work",
+    tags: ["productivity", "utility", "organization"],
+    icon: "⚡"
+  },
+  {
+    id: "design_creative",
+    title: "Design & Creative",
+    description: "Create stunning visuals, logos, and multimedia content",
+    tags: ["designer", "creativity", "branding", "audio", "music"],
+    icon: "🎨"
+  },
+  {
+    id: "marketing_business",
+    title: "Marketing & Business",
+    description: "Grow your business and enhance your marketing efforts",
+    tags: ["marketing", "business", "social", "branding"],
+    icon: "📈"
+  },
+  {
+    id: "writing_content",
+    title: "Writing & Content",
+    description: "Create, edit, and translate written content",
+    tags: ["writing", "content", "translation"],
+    icon: "✍️"
+  },
+  {
+    id: "health_wellness",
+    title: "Health & Wellness",
+    description: "Mental health support and wellness tools",
+    tags: ["healthcare", "support", "wellness"],
+    icon: "🏥"
+  },
+  {
+    id: "education_career",
+    title: "Education & Career",
+    description: "Learn new skills and advance your career",
+    tags: ["education", "career", "learning"],
+    icon: "🎓"
+  },
+  {
+    id: "finance_fintech",
+    title: "Finance & FinTech",
+    description: "Manage finances and explore financial technologies",
+    tags: ["finance", "fintech", "investment", "budgeting"],
+    icon: "💰"
+  },
+  {
+    id: "development_tech",
+    title: "Development & Tech",
+    description: "Programming tools and technical resources",
+    tags: ["development", "programming", "tech", "coding"],
+    icon: "💻"
+  },
+  {
+    id: "data_analytics",
+    title: "Data & Analytics",
+    description: "Analyze data and generate insights",
+    tags: ["analytics", "data", "insights", "reporting"],
+    icon: "📊"
+  },
+  {
+    id: "communication",
+    title: "Communication & Collaboration",
+    description: "Connect and collaborate with others effectively",
+    tags: ["communication", "collaboration", "teamwork"],
+    icon: "💬"
+  }
 ];
